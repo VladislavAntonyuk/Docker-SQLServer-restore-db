@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  sqlserver:
+    image: sqlserver-local
+    build:
+      context: .
+    ports:
+      - "1433:1433"
+    volumes:
+      - "./schema.bacpac:/tmp/schema.bacpac"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: Password_123
+      SCHEMA_BACPAC: /tmp/schema.bacpac
